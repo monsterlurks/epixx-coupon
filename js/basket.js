@@ -1,4 +1,4 @@
-var toCard = document.querySelectorAll('.catalog_cart__btn');// коллекция кнопок на карточке
+var toCard = document.querySelectorAll('.catalog_cart');// коллекция кнопок на карточке
 var basketList = document.querySelector('.catalog_basket__list');//контейнер для новых позиций в корзине(в него будем добавлять дивы с ценой и т.д. )
 var imgClose = document.querySelector('.catalog_basket__close').innerHTML;// картинка "удалить позицию в корзине"
 var card = [];
@@ -25,7 +25,11 @@ for (var i = 0; i < toCard.length; i++){
             price: parseInt(price), //при клике пушатся в массив, потом при вызове ф-ии подгруж. в basketList
             title: title
         });//конец метода push()
+     if (e.target.closest('.catalog_cart--disabled')){
+        return false
+             } else {
     takeToBusket();//во время клика вызывается ф-ия
+}
     });//конец события
 
 }

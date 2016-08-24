@@ -1,11 +1,10 @@
-var toCard = document.querySelectorAll('.catalog_cart');// коллекция кнопок на карточке
+var toCard = document.querySelectorAll('.catalog_cart');// коллекция карточкек
 var basketList = document.querySelector('.catalog_basket__list');//контейнер для новых позиций в корзине(в него будем добавлять дивы с ценой и т.д. )
 var imgClose = document.querySelector('.catalog_basket__close').innerHTML;// картинка "удалить позицию в корзине"
 var card = [];
 
 
-function takeToBusket(){
-
+function takeToBusket(){ //потом исправлю ошибку в слове basket
    for (var i = 0; i < card.length; i++){
          var content = '<div class="catalog_basket__line"><div class="catalog_basket__product">'
          + card[i].title + '</div><div class="catalog_basket__price price">'

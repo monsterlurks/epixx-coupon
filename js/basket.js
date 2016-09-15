@@ -11,7 +11,6 @@ function MakeBusket() {
         basketList.innerHTML += content;
         console.log(card);
     }
-
     SumTotal();
 }
 var cardContent = document.querySelector('.catalog__content');
@@ -35,23 +34,23 @@ cardContent.onclick = function(e) {
 function SumTotal() {
     var sum = 0;
     for (var i = 0; i < card.length; i++) {
-        if (card[i] !== null) { //если card[i] существует, то выполняем прибавляем к sum price из массива
+        if (card[i] !== null) { //если card[i] существует, то прибавляем к sum price из массива
             sum += card[i].price;
         }
     }
     document.querySelector(".catalog_basket__summ_text").innerHTML = sum + "$";
 }
+
 basketList.onclick = function(e) {
     //повесила событие на весь контейнер с добавленными товарами
     var target = e.target; //где был клик?
     if (target.tagName == 'svg') { // если таргетнутый элемент svg, то удаляем
-        // target.closest('.catalog_basket__line').remove();
         var number = target.closest('.catalog_basket__line').dataset.number;
         card.splice(number, 1);
         MakeBusket();
-        // SumTotal();
     }
-};
+}
+
 var url = 'http://localhost:8000/data.json';
 var obj = new XMLHttpRequest();
 var timer = '<div class="catalog_cart__timer timer"><div class="timer__item"><span class = "days">00</span><span>day</span></div><div class="timer__item"><span class = "hour">00</span><span>hour</span></div><div class="timer__item"><span class="min">00</span><span>min</span></div><div class="timer__item"><span class = "sec">00</span><span>sec</span></div>';
@@ -69,6 +68,7 @@ obj.addEventListener('load', function() {
         }
     }
 });
+
 obj.send();
 
 function createCoupon(data) {
@@ -76,7 +76,8 @@ function createCoupon(data) {
     // генерируем html строку(купон)
     cardList.innerHTML += cardFromJson;
 }
-/* ФУНКЦИЯ ТАЙМЕРА (БОООООЛЬ)*/
+
+/* ФУНКЦИЯ ТАЙМЕРА */
 function countdown() { // по загрузке страницы запускается данная ф-ия
     var cardSpecial = document.querySelectorAll('.catalog_cart--special');
     for (var i = 0; i < cardSpecial.length; i++) { // внутри каждой карточки в зависимости от атрибута dateto
@@ -165,7 +166,7 @@ for (var i = 0; i < checkInputs.length; i++) {
         }
     })
 }
-// Функция проверки чекбоксов. Если ни один не выбран, то при нажатии на кнопу buy алерт с просьбой выбрать время доставки
+// Функция проверки чекбоксов. Если ни один не выбран, то при нажатии на кнопу [I WANT IT] алерт с просьбой выбрать время доставки
 function validateCheckBoxes() {
     var checkBoxes = document.querySelectorAll('.checkbox__input')
     var checkBoxesArr = [];

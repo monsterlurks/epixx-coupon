@@ -1,0 +1,8 @@
+.btn {
+  background-color: pink;
+  font-size: 20px;
+}
+
+.catalog_basket .btn {
+  color: red;
+}

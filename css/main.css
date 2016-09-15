@@ -880,7 +880,7 @@ a {
 .price {
   white-space: nowrap; }
   .price::before {
-    content: '$ ';
+    content: ' ';
     font-size: inherit; }
 
 .btn {
